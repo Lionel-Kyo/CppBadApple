@@ -10,17 +10,22 @@ auto main(int argc, char* argv[]) -> int
     std::string audioPath = "D:\\BadApple.wav";
     std::string videoPath = "D:\\BadApple.mp4";
 
+#ifdef _WIN32
     // resoluntion: 2560 x 1440
     HWND console = GetConsoleWindow();
     MoveWindow(console, 1100, 100, 820, 640, TRUE); // Shrink by 10
+#endif //_WIN32
 
     std::string cvName = "Video";
     cv::namedWindow(cvName);
     cv::moveWindow(cvName, 50, 100);
 
+#ifdef _WIN32
     auto playAudio = new PlayAudio(audioPath);
-    auto playVideo = new PlayVideo(videoPath);
     playAudio->PlayAsync();
+#endif //_WIN32
+
+    auto playVideo = new PlayVideo(videoPath);
     playVideo->Play([&](cv::Mat& frame)
     {
         if (cv::getWindowProperty(cvName, cv::WND_PROP_VISIBLE) < 1)

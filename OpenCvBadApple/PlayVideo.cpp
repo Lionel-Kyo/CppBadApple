@@ -65,7 +65,10 @@ auto PlayVideo::ShowInConsole(cv::Mat& frame, uint32_t frameShrink) -> bool
 	cv::Mat newFrame;
 	cv::resize(frame, newFrame, cv::Size((int)frame.cols / frameShrink, (int)frame.rows / frameShrink));
 
+#ifdef _WIN32
 	// system("cls"); // bad performance
+#endif //_WIN32
+
 	auto type = newFrame.type();
 	auto size = newFrame.size();
 	std::string str = "";

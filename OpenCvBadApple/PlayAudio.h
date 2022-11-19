@@ -1,6 +1,6 @@
 // only work in Windows
-
 #pragma once
+#ifdef _WIN32
 #ifndef PLAYAUDIO_H
 #define PLAYAUDIO_H
 
@@ -18,5 +18,6 @@ public:
 	auto PlayAsync() -> void;
 };
 
+#endif // _WIN32
 #endif // !PLAYAUDIO_H
 
