@@ -34,7 +34,9 @@ auto main(int argc, char* argv[]) -> int
         playVideo->ShowInConsole(frame, 10);
         return true;
     });
+#ifdef _WIN32
     delete playAudio;
+#endif //_WIN32
     delete playVideo;
     return 0;
 }
