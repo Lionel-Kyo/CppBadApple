@@ -1,5 +1,7 @@
 ﻿#include <iostream>
+#ifdef _WIN32
 #include <Windows.h>
+#endif //_WIN32
 #include <opencv2/opencv.hpp>
 #include "PlayVideo.h"
 #include "PlayAudio.h"
